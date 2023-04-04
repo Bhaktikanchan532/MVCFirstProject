@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>@ViewData["message"]</h1>
+@if(ViewData["list"]!=null){
+    <ol>
+        @foreach(string item in (IEnumerable<string>)ViewData["list"])
+        {
+            <li>
+                @item
+            </li>
+        }
+    </ol>
+}
+else{
+    <p>List is Empty</p>
+}
+@if (ViewData["lt"] != null)
+{
+    <ol>
+        @foreach (string item in (IEnumerable<string>)ViewData["lt"])
+        {
+            <li>
+                @item
+            </li>
+        }
+    </ol>
+}
+else
+{
+    <p>List is Empty</p>
+}
+<h4>Using ViewBag</h4>
+<ol>
+    @foreach (string item in ViewBag.List)
+    {
+        <li>
+            @item
+        </li>
+    }
+</ol>
+<ol>
+    @foreach (string item in ViewBag.Lt)
+    {
+        <li>
+            @item
+        </li>
+    }
+</ol>
+
+<h4>Student List using ViewData</h4>
+@if(ViewData["studlist"]!=null){
+    <table class="table table-bordered">
+        <tr>
+            <th>Name </th>
+            <th>City</th>
+            <th>Percentage</th>
+        </tr>
+        @foreach(Student s in (IEnumerable<Student>)ViewData["studlist"])
+        {
+            <tr>
+                <td>@s.Name</td>
+                <td>@s.City</td>
+                <td>@s.Percentage</td>
+</tr>
+        }
+    </table>
+}
+
+@*<h4>Student List using ViewBag</h4>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Name </th>
+            <th>City</th>
+            <th>Percentage</th>
+        </tr>
+        @foreach (Student s in ViewBag["slist"])
+        {
+            <tr>
+                <td>@s.Name</td>
+                <td>@s.City</td>
+                <td>@s.Percentage</td>
+            </tr>
+        }
+    </table>
+*@
+
+
+<h4>Employee List using ViewData</h4>
+@if (ViewData["emplist"] != null)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>Name </th>
+            <th>City</th>
+            <th>Salary</th>
+        </tr>
+        @foreach (Employee e in (IEnumerable<Employee>)ViewData["emplist"])
+        {
+            <tr>
+                <td>@e.Name</td>
+                <td>@e.City</td>
+                <td>@e.Salary</td>
+            </tr>
+        }
+    </table>
+}
